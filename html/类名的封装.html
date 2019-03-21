@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+<div id="demo"></div>
+<div></div>
+<div></div>
+<div class="one"></div>
+<div class="one"></div>
+<div class="one"></div>
+<div></div>
+<div></div>
+<div></div>
+<div id="last"></div>
+</body>
+</html>
+<script>
+    // $("#demo")   $(".one")   $("div")
+    //封装自己的$
+    function $(str) {
+        var s = str.charAt(0);   //  一个s 的变量 存放是 符号  #  .
+        var ss = str.substr(1);  // demo
+        switch(s)
+        {
+            case "#":
+                return document.getElementById(ss);
+                break;
+            case ".":
+                return getClass(ss);
+                break;
+            default :
+                return document.getElementsByTagName(str);
+        }
+    }
+
+
+    $("#demo").style.backgroundColor = "purple";
+    $("#last").style.backgroundColor = "purple";
+    var test = $(".one");
+    for(var i=0;i<test.length;i++)
+    {
+        test[i].style.backgroundColor = "blue";
+    }
+
+</script>

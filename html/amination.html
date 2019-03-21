@@ -1,0 +1,160 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>动画</title>
+
+<style>
+#wrap{
+	width:140px;
+	height:300px;
+	position: fixed;
+	left: 50%;
+	top: 35%;
+	margin-left: -70px;
+	z-index: 100;
+	cursor: pointer;
+}
+#ball{
+	width:140px;
+	height:140px;
+	border-radius:70px;
+	background:rgb(187,187,187);
+	background:linear-gradient(top,  rgba(187,187,187,1) 0%,rgba(119,119,119,1) 99%);
+	box-shadow: inset 0 -5px 15px rgba(255,255,255,0.4), 
+				inset -2px -1px 40px rgba(0,0,0,0.4), 
+				0 0 1px #000;
+	animation:jump 1s infinite;
+	position: absolute;
+	top: 0;	
+	z-index: 11;
+}
+#ball::after {
+			content: "";
+			width: 80px; 
+			height: 40px; 
+			position: absolute;
+			left: 30px;
+			top: 10px;
+			/*z-index: 10;*/
+			background: linear-gradient(to top,  rgba(232,232,232,1) 0%,rgba(232,232,232,1) 1%,rgba(255,255,255,0) 100%);
+			border-radius: 40px / 20px;	
+		}
+		#ball_shadow {
+			position: absolute;
+			left: 50%;
+			bottom: 0;
+			margin-left: -30px;
+			width: 60px;
+			height: 75px;
+			/*z-index: 10;*/
+			background: rgba(20, 20, 20, .1);
+			box-shadow: 0px 0 20px 35px rgba(20,20,20,.1);
+			border-radius: 30px  40px;
+			transform: scaleY(.3);
+			animation: shrink 1s infinite;
+		}
+		@keyframes jump {
+			0% {
+				top: 0;
+				animation-timing-function: ease-in;
+			}
+
+			50% {
+				top: 140px;
+				height: 140px;
+				animation-timing-function: ease-out;
+			}
+
+			55% {
+				top: 160px; 
+				height: 120px; 
+				border-radius: 70px / 60px;
+				animation-timing-function: ease-in;
+			}
+
+			65% {
+				top: 120px; 
+				height: 140px; 
+				border-radius: 70px;
+				animation-timing-function: ease-out;
+			}
+
+			95% {
+				top: 0;		
+				animation-timing-function: ease-in;
+			}
+
+			100% {
+				top: 0;
+				animation-timing-function: ease-in;
+			}
+		}
+
+		@keyframes shrink {
+			0% {
+				bottom: 0;
+				margin-left: -30px;
+				width: 60px;
+				height: 75px;
+				background: rgba(20, 20, 20, .1);
+				box-shadow: 0px 0 20px 35px rgba(20,20,20,.1);
+				border-radius: 30px / 40px;
+				animation-timing-function: ease-in;
+			}
+
+			50% {
+				bottom: 30px;
+				margin-left: -10px;
+				width: 20px;
+				height: 5px;
+				background: rgba(20, 20, 20, .3);
+				box-shadow: 0px 0 20px 35px rgba(20,20,20,.3);
+				border-radius: 20px / 20px;
+				animation-timing-function: ease-out;
+			}
+			
+			100% {
+				bottom: 0;
+				margin-left: -30px;
+				width: 60px;
+				height: 75px;
+				background: rgba(20, 20, 20, .1);
+				box-shadow: 0px 0 20px 35px rgba(20,20,20,.1);
+				border-radius: 30px / 40px;
+				animation-timing-function: ease-in;
+			}
+		}
+</style>
+
+</head>
+<!----
+	涉及动画属性
+    在命名动画之前要用@keyframes 动画名称{
+    （设置进行到不同的程度时的样式）
+    0%{
+    初识状态
+    }
+    50%{
+    }
+    100%{
+    }
+    	动画对应的参数：
+        animation-name:
+        animation-duration:(动画持续的时间)
+        animation-fill-mode:forward;(动画结束后的状态)
+        animation-iteration-count:infinite(无限进行)
+        animation-delay:(动画延时)
+        animation-play-state:paused(动画暂停)
+        animation-direction：alternate(动画反方向)
+        animation-timing-function:linear/ease/ease-in/ease-out/ease-in-out;
+    }
+   属性：
+------>
+<body>
+<div id="wrap">
+	<div id="ball"></div>
+    <div id="ball_shadow"></div>
+</div>
+</body>
+</html>

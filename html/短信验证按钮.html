@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>短信验证按钮</title>
+    <script>
+        window.onload=function(){
+            var btn=document.getElementById("btn");
+            var timer=null;
+            var count=5;
+            btn.onclick=function(){
+               timer= setInterval(sendMessage,1000);
+                function sendMessage(){
+                    count--;
+                    if(count>=0){
+                        btn.innerHTML="剩余"+count+"秒";
+                        btn.disabled=true;
+                    }
+                   else{
+                        btn.innerHTML="重新发送验证码";
+                        btn.disabled=false;
+                        clearInterval(timer);
+                        count=5;
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="demo">
+    <input type="text"/>
+    <button id="btn">发送短信验证码</button>
+</div>
+</body>
+</html>

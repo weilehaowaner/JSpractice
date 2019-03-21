@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>表单基础</title>
+		<script type="text/javascript" src="../js/jquery.js" ></script>
+		<script>
+			$(function(){
+				var forms=document.getElementsByTagName("form");
+				console.log(forms.length);
+				var name=document.forms["form2"].name;
+				console.log(name);
+				EventUtil.addHandle(forms,'submit',function(event){
+					event=EventUtil.getEvent(event);
+					EventUtil.preventDefault(event);
+				});
+//提交表单前对表单数据进行验证之后,使用form.Submit()方法进行表单提交
+//重置表单用form.reset();
+			})
+		</script>
+	</head>
+	<body>
+		<form action="" name="form1">
+			<!--提交表单-->
+			<!--通用提交按钮-->
+			<input type="submit" value=""/>
+			<!--自定义提交按钮-->
+			<button type="submit"></button>
+			<!--图片提交按钮-->
+			<input type="image" src=""/>
+			<!--回车换行即可提交表单-->
+			
+			<!--通用重置按钮-->
+			<input type="reset" value=""/>
+			<!--自定义重置按钮-->
+			<button type="reset"></button>
+			
+		</form>
+		<form action="" name="form2"></form>
+	</body>
+</html>

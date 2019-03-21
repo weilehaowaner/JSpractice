@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>css3—3D/2D转换</title>
+		<style>
+			/*translate()方法
+			 * 根据左(X轴)和顶部(Y轴)位置给定的参数
+			 * 从当前元素位置移动
+			 * translate值（50px，100px）
+			 * 是从左边元素移动50个像素，并从顶部移动100像素。
+			 * */
+			/*rotate()方法
+			 * 在一个给定度数顺时针旋转的元素。
+			 * 负值是允许的，这样是元素逆时针旋转。
+			 * */
+			/**
+			 * scale()方法
+			 * 该元素增加或减少的大小
+			 * 取决于宽度（X轴）和高度（Y轴）的参数：
+			 * 如scale(2,4)
+			 * 表示宽度变为原来的2倍，高度变为原来的4倍
+			 */
+			/*
+			 skew()方法
+			 该元素会根据横向（X轴）和垂直（Y轴）线参数给定角度：
+			 如skew(20deg,30deg)
+			 表示元素在X轴和Y轴上旋转20°和30°
+			 * */
+			/*
+			 matrix(n1,n2,n3,n4,n5,n6)
+			 旋转、缩放、平移、倾斜
+			 * */
+			/*
+			 perspective(n)
+			 定义3D转换元素的透视视图
+			 * */
+			
+			/*
+			 transition(过渡):要改变的属性  时间
+			 transition:n1,n2,n3,n4;
+			 n1:transition-property:要转换的属性
+			 n2:transition-duration:过度效果要话费的时间
+			 n3:transition-time-function:过渡时间的变化规律
+			 n4：transition：过渡效果的延迟时间
+			 * */
+			/*
+			 @keyframes规则是创建动画
+			 要在要变换的元素里定义动画属性：
+			 如div{
+			 	animation:动画的名称  动画花费时间；
+			 }
+			方法一： @keyframes 动画名称
+			 {
+			 	from{
+			 		变化的属性：原始属性值；
+			 					......
+			 	}
+			 	to{
+			 		变化的属性：变化后的属性值；
+			 	}
+			 }
+			 方法二： @keyframes 动画名称
+			 {
+			 	0%{
+			 		变化的属性：原始属性值；
+			 					......
+			 	}
+			 	50%{
+			 		变化的属性：此刻的属性值；
+			 	}
+			 	100%{
+			 		变化的属性：最终的属性值；
+			 	}
+			 }
+			 animation-name:
+			 animation-duration:
+			 animation-timing-function:
+			 animation-delay:
+			 animation-iteration-count(动画的播放次数):n/infinite；
+			 animation-play-state:paused/running;
+			 * */
+			.first_child:hover{
+				width:200px;
+			}
+			.parient{
+				width:200px;
+				height:200px;
+				padding:50px;
+				margin:100px auto;
+				border:1px solid #C8C8C8;
+				background-color:green;
+				transform: rotate(45deg);
+				-webkit-transform: rotate(45deg);
+				-moz-transform: rotate(45deg);
+				transform: scale(2,1.5);
+				-webkit-transform: scale(2,1.5);
+				-moz-transform: scale(2,1.5);
+			}
+			.first{
+				width:300px;
+				height:300px;
+				padding:50px;
+				margin:400px auto;
+				border:1px solid #C8C8C8;
+				background-color:green;
+			}
+			.child{
+				width:200px;
+				height:200px;
+				border:1px solid black;
+				background-color:yellow;
+				transform: translate(300px,100px);
+				-webkit-transform: translate(300px,100px);
+				-moz-transform: translate(300px,100px);
+			}
+			.first_child{
+				width:50px;
+				height:200px;
+				border:1px solid black;
+				background-color:yellow;
+				transition:width 2s;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="parient">
+			<div class="child"></div>
+		</div>
+		<div class="first">
+			<div class="first_child">
+				
+			</div>
+		</div>
+	</body>
+</html>

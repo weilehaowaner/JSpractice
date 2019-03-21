@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>排他思想原理</title>
+<style>
+*{
+	padding:0px;
+	margin:0px;
+	font-size:18px;
+}
+.wrapper{
+	width:250px;
+	margin:100px auto;
+	border:1px solid #000;
+}
+.title{
+	width:230px;
+	margin:0 auto;
+}
+.titleShow{
+	background:#F00;	
+}
+#body div{
+	width:250px;
+	height:200px;
+	border-bottom:1px solid #666;
+	background:#609;
+	display:none;
+}
+#body .box{
+	display:block;
+}
+</style>
+<script>
+window.onload=function(){
+	var btns=document.getElementsByTagName("button");
+	var divs=document.getElementById("body").getElementsByTagName("div");
+	for(var i=0;i<btns.length;i++){
+		btns[i].index=i;
+		btns[i].onclick=function(){
+			for(var j=0;j<btns.length;j++){
+				btns[j].className="";
+				divs[j].className="";
+				}
+			this.className="titleShow";
+			divs[this.index].className="box";
+		}
+	}
+}
+</script>
+</head>
+
+<body>
+<div class="wrapper">
+   <div class="title">
+	<button class="titleShow"> 新闻 </button>
+    <button> 体育 </button>
+    <button> 娱乐 </button>
+    <button> 购物 </button>
+    <button> 八卦 </button>
+   </div>
+   <div id="body">
+       <div class="box">新闻</div>
+       <div>体育</div>
+       <div>娱乐</div>
+       <div>购物</div>
+       <div>八卦</div>
+   </div>
+</div>
+</body>
+</html>

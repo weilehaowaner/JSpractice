@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+    <style>
+        .wrapper{
+            width:30px;
+            height:30px;
+            margin:100px;
+            border:1px solid black;
+            overflow:hidden;
+            position:relative;
+        }
+        button{
+            width:60px;
+            height:30px;
+            font-size:14px;
+        }
+#image{
+    position:absolute;
+}
+    </style>
+    <script>
+        window.onload=function(){
+            function $(id){
+                return document.getElementById(id);
+            }
+            $("next").onclick=function(){
+                $("image").style.top="-30px";
+            }
+            $("last").onclick=function(){
+                $("image").style.top="0px";
+            }
+        }
+    </script>
+</head>
+
+<body>
+<div class="wrapper">
+    <img src="../image/test.gif" id="image" style="width:30px;height:60px;"/>
+</div>
+<button id="next">下一张</button>
+<button id="last">上一张</button>
+</body>
+</html>

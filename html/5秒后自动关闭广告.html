@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>5秒自动关闭广告</title>
+    <style>
+        img{
+            position:absolute;
+            top:0;
+        }
+        #right
+        {
+            right:0;
+        }
+        #left{
+            left:0
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            function $(id){
+                return document.getElementById(id);
+            }
+            setTimeout(function(){
+                $("left").style.display="none";
+            },5000);
+            setTimeout(function(){
+                $("right").style.display="none";
+            },5000);
+        }
+    </script>
+</head>
+<body>
+<img src="../images/pk1.png" id="left"/>
+<img src="../images/pk2.png" id="right"/>
+<p>作者奥威尔曾经经受着极权主义的统治，对其深恶痛绝，很明白生活在其中是怎样的被压制、压迫。
+    毫无隐藏他的写作目的，为了政治而作。《1984》这本书写与斯大林时代以苏联为首，掩盖在社会主义下的极权主义的统治。
+    作者奥威尔希望人们看到在表面制度光辉靓丽的情况下，其背后真正是一种怎样的统治，希望唤醒被一次次麻木的大众，
+    希望让我们保持理性去认识这个社会，防止走向极权统治。</p>
+</body>
+</html>

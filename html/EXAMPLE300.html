@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS300例</title>
+<script>
+    window.onload=function () {
+        var dn;
+        var time = new Date();
+        var hours = String(time.getHours());
+        var minutes = String(time.getMinutes());
+        var seconds = String(time.getSeconds());
+        if (hours > 12) {
+            dn = "PM";
+        }
+        else {
+            dn = "AM"
+        }
+        if (minutes < 9) {
+            minutes = "0" + minutes;
+        }
+        if (seconds < 9) {
+            seconds = "0" + seconds;
+        }
+        document.getElementById("demo_1").innerHTML = hours + ":" + minutes + ":" + seconds + dn;
+        function riqi() {
+            var isnMonth = new
+                    Array("1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月");
+            var isnDay = new
+                    Array("星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日");
+            today = new Date();
+            Year = today.getFullYear();
+            Date = today.getDate();
+            document.getElementById("demo_2").innerHTML = "今天是: " + Year + "年" + isnMonth[today.getMonth()] + Date + "日" + isnDay[today.getDay()];
+        }
+        riqi();
+
+        function calculation() {
+            BirthDay = new Date("December 04,1998");
+            today = new Date();
+            timeold = (today.getTime() - BirthDay.getTime());
+            sectimeold = timeold / 1000;
+            secondsold = Math.floor(sectimeold);
+            msPerDay = 24 * 60 * 60 * 1000;
+            e_daysold = timeold / msPerDay;
+            daysold = Math.floor(e_daysold);
+            e_hrsold = (e_daysold - daysold) * 24;
+            hrsold = Math.floor(e_hrsold);
+            e_minsold = (e_hrsold - hrsold) * 60;
+            minsold = Math.floor((e_hrsold - hrsold) * 60);
+            seconds = Math.floor((e_minsold - minsold) * 60);
+            document.write("1998年12月4号已经过去了" + daysold + "天" + hrsold + "小时" + minsold + "分" + seconds + "秒啦!");
+        }
+        calculation();
+    }
+
+
+</script>
+</head>
+<body>
+<!-----------日期时间显示钟--------------->
+<p id="demo_1">时间</p>
+<p id="demo_2">日期</p>
+
+</body>
+</html>

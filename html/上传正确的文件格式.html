@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>上传正确的文件格式</title>
+    <script>
+        window.onload=function(){
+            function $(name) {
+                var first = name.charAt(0);   //  一个s 的变量 存放是 符号  #  .
+                var string = name.substr(1);  // demo
+                switch(first)
+                {
+                    case "#":
+                        return document.getElementById(string);
+                        break;
+                    case ".":
+                        return document.getElementsByClassName(string);
+                        break;
+                    default :
+                        return document.getElementsByTagName(name);
+                }
+            }
+            $("#btn").onchange=function(){
+                var path=this.value;
+                var suffix=path.substr(path.lastIndexOf(".")).toUpperCase();//判断后缀名，并且将其转化为大写
+                if(suffix==".HTML"){
+                    this.nextSibling.innerHTML="文件上传格式正确";
+                }
+                else{
+                    this.nextSibling.innerHTML="文件上传格式错误";
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+<input type="file" name="" id="btn"/><span></span>
+</body>
+</html>

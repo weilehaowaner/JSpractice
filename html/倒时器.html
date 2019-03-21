@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>倒时器</title>
+</head>
+<style>
+    *{
+        margin:0;
+        padding:0;
+    }
+    #box{
+        width:600px;
+        margin:0 auto;
+        font-size:30px;
+        color:red;
+    }
+</style>
+<script>
+    window.onload=function(){
+        var enterTime=new Date("2018/2/22");
+        setInterval(clock,1000);
+        function clock(){
+            var date=new Date();
+            var seconds = parseInt((enterTime.getTime()-date.getTime())/1000);
+            var day = parseInt(seconds/3600/24);
+            var hour = parseInt(seconds/3600%24);
+            var minutes = parseInt(seconds/60%60);
+            var second = parseInt(seconds%60);
+            var txt=document.getElementById("box");
+            txt.innerHTML="距离返校还剩："+day+"天 "+hour+"小时 "+minutes+"分 "+second+"秒!";
+        }
+
+    }
+</script>
+<body>
+<div id="box">
+</div>
+</body>
+</html>

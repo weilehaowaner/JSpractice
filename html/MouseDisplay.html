@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>鼠标展示</title>
+    <style>
+        * {
+            padding:0px;
+            margin:0px;
+            font-size:18px;
+        }
+        #box{
+            width:360px;
+            height: 70px;
+            padding-top:360px;
+            margin:200px auto;
+            border:1px solid black;
+            background:url("../images/01big.jpg") no-repeat;
+            overflow:hidden;
+        }
+        ul{
+            list-style:none;
+            overflow: hidden;
+            border-top:1px solid #ccc;
+        }
+        ul li{
+            float:left;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            function $(id){ return document.getElementById(id);}
+            /*---------------方法一------------------------*/
+            /*$("li01").onmousemove=function(){
+             $("box").style.backgroundImage="url(../images/01big.jpg)";
+             }
+             $("li02").onmousemove=function(){
+             $("box").style.backgroundImage="url(../images/02big.jpg)";
+             }
+             $("li03").onmousemove=function(){
+             $("box").style.backgroundImage="url(../images/03big.jpg)";
+             }
+             $("li04").onmousemove=function(){
+             $("box").style.backgroundImage="url(../images/04big.jpg)";
+             }
+             $("li05").onmousemove=function(){
+             $("box").style.backgroundImage="url(../images/05big.jpg)";
+             }*/
+            /*利用函数传参的方法*/
+            /*---------------方法二------------------------*/
+            function appear(id,bg){
+                $(id).onmouseover = function(){
+                    $("box").style.backgroundImage = bg;
+                }
+            }
+            appear("li01","url(../images/01big.jpg)");
+            appear("li02","url(../images/02big.jpg)");
+            appear("li03","url(../images/03big.jpg)");
+            appear("li04","url(../images/04big.jpg)");
+            appear("li05","url(../images/05big.jpg)");
+        }
+    </script>
+</head>
+
+<body>
+<div id="box">
+    <ul>
+        <li id="li01"><img src="../images/01.jpg"/></li>
+        <li id="li02"><img src="../images/02.jpg"/></li>
+        <li id="li03"><img src="../images/03.jpg"/></li>
+        <li id="li04"><img src="../images/04.jpg"/></li>
+        <li id="li05"><img src="../images/05.jpg"/></li>
+    </ul>
+</div>
+
+</body>
+</html>

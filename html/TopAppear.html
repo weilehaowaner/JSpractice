@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>弹出层显示</title>
+    <style>
+        *{
+            padding:0px;
+            margin:0px;
+        }
+        body{
+            background:white;
+        }
+.top{
+    width:100%;
+    height:40px;
+    background-color: #3B3F51;
+    padding:18px 4px;
+    font-family: "Open Sans", sans-serif;
+    font-size: 20px;
+    color:white;
+}
+.body{
+    width:71%;
+    min-height:500px;
+    margin:0 auto;
+}
+.title{
+    height:40px;
+    padding-left:8px;
+    line-height: 40px;
+}
+header{
+    height:20px;
+    background:#3598dc;
+    padding-left:8px;
+    line-height: 20px;
+}
+span{
+    display: inline-block;
+    width:29%;
+    height:24px;
+    padding:5px 5px;
+    font-style: normal;
+    font-size: 14px;
+    text-align: right;
+    background:#f7f7f7;
+    border-right:1px solid #c8c8c8;
+    border-bottom:1px solid #c8c8c8;
+}
+.text{
+    diplay:inline-block;
+    width:50%;
+    text-align:left;
+    padding-left:7%;
+    padding-right:12%;
+}
+input{
+    width:100%;
+}
+        button{
+            width:60px;
+            height:25px;
+            float:right;
+            margin-top: 10px;
+        }
+        #mask{
+            width:100%;
+            height:100%;
+            background:rgba(0,0,0,0.5);
+            position:fixed;
+            top:0px;
+            left:0px;
+            z-index: 999;
+            display:none;
+        }
+        #TOP{
+            width:400px;
+            height:200px;
+            position:fixed;
+            margin:-100px 0 0 -100px;;
+            top:50%;
+            left:50%;
+            background:white;
+            z-index:1000;
+            display:none;
+        }
+        #exict{
+            position:absolute;
+            right:15px;
+           bottom:15px;
+        }
+       #TOP .content{
+           display:block;
+           width:100%;
+           height:20px;
+           text-align: center;
+           line-height: 20px;
+
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            function $(id) {
+                return document.getElementById(id);
+            }
+            $("submit").onclick=function() {
+                $("mask").style.display = "block";
+                $("TOP").style.display = "block";
+            }
+            $("exict").onclick=function(){
+                $("mask").style.display="none";
+                $("TOP").style.display="none";
+            }
+        }
+    </script>
+</head>
+<body>
+<div class="wrapper">
+   <div class="top">
+       <img width="100px;" height="40px;" src="../image/logo.png">浙江传媒学院
+   </div>
+   <div class="body">
+        <div class="title">浙江传媒学院</div>
+        <header>个人信息</header>
+        <div class="row">
+            <span>姓名</span><span class="text"><input type="text" class="textBox"/></span>
+        </div>
+        <div class="row">
+            <span>性别</span><span class="text"><input type="text" class="textBox"/></span>
+        </div>
+        <div class="row">
+           <span>年龄</span><span class="text"><input type="text" class="textBox"/></span>
+        </div>
+        <div class="row">
+           <span>学校</span><span class="text"><input type="text" class="textBox"/></span>
+        </div>
+        <button id="submit">提交</button>
+</div>
+    <div id="mask"></div>
+    <div id="TOP">
+        <i class="content">您输入的信息正确！</i>
+        <button id="exict">确定</button>
+    </div>
+</div>
+</body>
+</html>

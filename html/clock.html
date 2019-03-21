@@ -1,0 +1,160 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>时钟</title>
+<style>
+section{
+	width:100%;
+	height:600px;
+	background:#CCC;
+	margin:0 auto;
+}
+header{
+	width:100%;
+	height:50px;
+	border-radius:10px;
+	font-size:24px;
+	line-height:50px;
+	text-align:center;
+	background:#666;
+}
+.box{
+	width:200px;
+	height:200px;
+	margin:50px auto;
+	border-radius:50%;
+	border:10px solid black;
+	position:relative;
+}
+.line {
+			position: absolute;
+			left: 50%;
+			margin-left: -3px;/*因为line自己有宽度，所以left=50%时并不能真正地居中*/
+			width: 6px;
+			height: 200px;
+			background-color: gray;
+		}
+
+		.line1 {
+			transform: rotate(30deg);
+		}
+
+		.line2 {
+			transform: rotate(-30deg);
+		}
+
+		.line3 {
+			transform: rotate(60deg);
+		}
+
+		.line4 {
+			transform: rotate(-60deg);
+		}
+
+		.line5 {
+			transform: rotate(30deg);
+		}
+
+		.line6 {
+			transform: rotate(90deg);
+		}
+
+		.line1, .line2, .line3, .line4, .line5, .line6{
+			width: 2px;
+			margin-left: -1px;
+		}
+		.white_circle {
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			margin: -80px 0 0 -80px;
+			width: 160px;
+			height: 160px;
+			border-radius: 50%;
+			background-color: #fff;
+		}
+
+		.black_circle {
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			margin: -8px 0 0 -8px;
+			width: 16px;
+			height: 16px;
+			border-radius: 50%;
+			background-color: #000;
+			z-index: 1;
+		}
+
+		.hour {
+			position: absolute;
+			top: 50%;
+			right: 50%;
+			width: 35px;
+			height: 6px;
+			margin-top: -3px;
+			background-color: #000;
+			border-radius: 5px;
+			transform-origin: right;
+			animation: tick-tock 216000s steps(60, end) infinite;
+		}
+
+		.minute {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			width: 6px;
+			height: 46px;
+			margin: -46px 0 0 -3px;
+			background-color: #000;
+			border-radius: 5px;
+			transform-origin: bottom;
+			animation: tick-tock 3600s steps(60, end) infinite;
+		}
+
+		.second {
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			width: 2px;
+			height: 50px;
+			margin: -50px 0 0 -1px;
+			background-color: red;
+			border-radius: 5px;
+			transform-origin: bottom;
+			animation: tick-tock 60s steps(60, end) infinite;
+		}
+
+		@keyframes tick-tock {
+			to {
+				transform: rotate(360deg);
+			}
+		}
+</style>
+</head>
+
+<body>
+<div id="wrap">
+<section>
+        <header>时钟转动</header>
+        <div class="box">
+        	<div class="line"></div>
+        	<div class="line line1"></div>
+            <div class="line line2"></div>
+            <div class="line line3"></div>
+            <div class="line line4"></div>
+            <div class="line line5"></div>
+            <div class="line line6"></div>
+            <!-- 内部白圆与线条配合形成刻度 -->
+            <div class="white_circle"></div>
+            <!-- 时钟中心圆点 -->
+            <div class="black_circle"></div>
+            <div class="hour"></div>
+            <div class="minute"></div>
+            <div class="second"></div>
+        </div>
+    </section>
+</div>
+</body>
+</html>

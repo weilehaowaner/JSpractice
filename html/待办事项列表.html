@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>待办事项列表</title>
+		<style>
+			*{
+				padding:0;
+				margin:0;
+				font-family: "bodoni mt black";
+				font-size: 16px;
+			}
+			.wrapper{
+				margin:0 auto;
+			}
+			.topTitle{
+				background:#FF0000;
+				height:160px;
+				width:100%;
+				padding:30px;
+				background:red;
+			}
+			.topTitle h2{
+				font-size: 20px;
+				text-align: center;
+				line-height: 60px;
+				color:white;
+			}
+			#Mytext{
+				width:70%;
+				line-height:30px;
+				padding:5px;
+				float:left;
+			}
+			#toAdd{
+				width:20%;
+				line-height:34px;
+				padding:5px;
+				text-align: center;
+				float:left;
+				background-color:#BBBBBB;
+				color:white;
+			}
+			#ulList{
+				width:100%;
+				list-style: none;
+				clear:both;
+			}
+			#ulList li{
+				width:100%;
+				line-height: 20px;
+				padding:12px 8px 12px 40px;
+				position:relative;
+				letter-spacing: 2px;
+			}
+			#toAdd:hover{
+				background-color:#808080;
+			}
+		</style>
+		<script>
+			window.onload=function(){
+				//封装类名
+				function $(id){
+					return document.getElementById(id);
+				}
+				//获取添加按钮
+				var getButton=$("toAdd");
+				//获取输入框文本
+				var inputValue=$("Mytext").value;
+				//获取ul
+				var ul=$("ulList");
+				//修饰li
+				
+				//添加li
+				var creatLi=document.createElement("li");
+				var txtNode=document.createTextNode(inputValue);
+				creatLi.appendChild(txtNode);
+				//判断新加入的事项是否为空
+				if(txtNode==""){
+					alter("您输入的内容为空，不能添加！")
+				}
+				else{
+					ul.appendChild(creatLi);
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div class="wrapper">
+			<div id="myDiv" class="topTitle">
+				<h2>我的待办事项列表</h2>
+				<input id="Mytext" type="text"/>
+				<span id="toAdd">添加</span>
+			</div>
+			<ul id="ulList">
+				<li>待办事项1</li>
+				<li class="checked">待办事项2</li>
+				<li>待办事项3</li>
+				<li>待办事项4</li>
+				<li>待办事项5</li>
+				<li>待办事项6</li>
+			</ul>
+		</div>
+		
+	</body>
+</html>

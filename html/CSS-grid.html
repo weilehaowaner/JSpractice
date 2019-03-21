@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>CSS-grid布局</title>
+<style>
+	#wrapper{
+		width:300px;
+		margin:50px auto;
+		boreder:1px solid black;
+		border-radius:5px;
+		background:#CCC;
+		display:grid;
+		text-align:center;
+		grid-template-columns:100px 100px 100px;
+		grid-template-rows:100px 100px 100px;
+	}
+	.part1{
+		background:#F00;
+		grid-column-start:1;
+		grid-column-end:3;
+	}
+	.part2{
+		background:#0F0;
+	}
+	.part3{
+		background:#00F;
+		grid-row-start:2;
+		grid-row-end:4;
+	}
+	.part4{
+		background:#FF0;
+		grid-column-start:2;
+		grid-column-end:4;
+	}
+	.part5{
+		background:#0FF;
+	}
+	.part6{
+		background:#F0F;
+	}
+	/*.part7{
+		background:#F93;
+	}
+	.part8{
+		background:#600;
+	}
+	.part9{
+		background:#003;
+	}*/
+</style>
+</head>
+
+<body>
+<div id="wrapper">
+<div class="part part1">1</div>
+<div class="part part2">2</div>
+<div class="part part3">3</div>
+<div class="part part4">4</div>
+<div class="part part5">5</div>
+<div class="part part6">6</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+section{
+	width:100%;
+	height:600px;
+	background:#CCC;
+	margin:0 auto;
+}
+header{
+	width:100%;
+	height:50px;
+	border-radius:10px;
+	font-size:24px;
+	line-height:50px;
+	text-align:center;
+	background:#666;
+}
+.box{
+	width:100%;
+	height:200px;
+	margin:10px auto;
+	text-align:center;
+	line-height:1;
+	color:#000;
+	font-size:20px;
+}
+span{
+	animation:move 1s linear;
+}
+	@keyframes move{
+		0%{
+			margin:0 40px;
+		}
+		100%{
+			margin:0 5px;
+		}
+	}
+</style>
+</head>
+
+<body>
+<div id="wrap">
+	<section>
+        <header>数字间距变小示例</header>
+        <div class="box">
+        	<span>4</span>
+            <span>亿</span>
+            <span>网</span>
+            <span>友</span>
+            <span>共</span>
+            <span>同</span>
+            <span>信</span>
+            <span>赖</span>
+        </div>
+    </section>
+</div>
+</body>
+</html>

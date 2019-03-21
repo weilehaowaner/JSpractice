@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>轮播图</title>
+    <style>
+        *{
+            padding:0;
+            margin:0;
+        }
+        #demo{
+            width:520px;
+            height:280px;
+            padding:5px;
+            margin:100px auto;
+            border:1px solid black;
+            position:relative;
+        }
+        #box{
+            width:520px;
+            height:280px;
+            position:relative;
+            overflow: hidden;
+        }
+        #box ul{
+            width:2600px;
+            height:100%;
+            list-style: none;
+            position:absolute;
+            top:0;
+        }
+        #box ul li{
+            float:left;
+        }
+        #arrow{
+            width:520px;
+            position:absolute;
+            top:50%;
+            margin-top:-25px;
+        }
+        span{
+            display:block;
+            width:50px;
+            height:50px;
+            font-size:40px;
+            text-align:center;
+            line-height:50px;
+            background:rgba(0,0,0,.5);
+            color:#ffffff;
+            cursor:pointer;
+        }
+        #left{
+            float:left;
+        }
+        #right{
+            float:right;
+
+        }
+        .out{
+            display:none;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            var leader= 0,target=0;
+            function $(id){
+                return document.getElementById(id);
+            }
+            $("demo").onmouseover=function(){
+
+                    $("arrow").className="";
+
+            }
+            $("demo").onmouseout=function(){
+                $("arrow").className="out";
+            }
+            $("left").onclick=function(){
+                target=target+520;
+            }
+            $("right").onclick=function(){
+                target=target-520;
+            }
+            timer=setInterval(speed,10);
+            function speed(){
+                if(target<=-2080){
+                    target=-2080;
+                }
+                else if(target>=0){
+                    target=0;
+                }
+                leader=leader+(target-leader)/10;
+                $("box").children[0].style.left=leader+"px";
+            }
+
+        }
+    </script>
+</head>
+<body>
+<div id="demo">
+    <div id="box">
+        <ul>
+            <li><img src="../images/11.jpg"/></li>
+            <li><img src="../images/22.jpg"/></li>
+            <li><img src="../images/33.jpg"/></li>
+            <li><img src="../images/44.jpg"/></li>
+            <li><img src="../images/55.jpg"/></li>
+        </ul>
+    </div>
+    <div id="arrow" class="out">
+        <span id="left">&lt;</span>
+        <span id="right">&gt;</span>
+    </div>
+
+</div>
+</body>
+</html>

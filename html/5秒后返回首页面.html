@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>5秒钟之后返回首页</title>
+    <style>
+        *{
+            padding:0;
+            margin:0;
+        }
+        #demo{
+            width:400px;
+            font-size: 30px;
+            hieght:30px;
+            margin:0 auto;
+            border: 1px solid black;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            var demo=document.getElementById("demo");
+            var count=5;
+            setTimeout(indexPage,1000);
+            function indexPage(){
+                count--;
+                demo.innerHTML="本页面将在"+count+"秒之后返回首页";
+                if(count<=0){
+                    window.location.href="http://www.baidu.com";
+                }
+                else{
+                    setTimeout(indexPage,1000);
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="demo">
+</div>
+</body>
+</html>

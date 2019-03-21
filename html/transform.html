@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>旋转</title>
+</head>
+<!---
+transition------动画效果；
+transform-----旋转，移动
+transition 和  transform  组合使用
+transform-origin:    以什么为中心点进行旋转
+
+---->
+<style>
+#wrap{
+	width:600px;
+	height:1200px;
+	margin:0 auto;
+	background:#999;
+	padding:5px;
+}
+header{
+	width:400px;
+	height:50px;
+	margin:0 auto;
+	font-size:20px;
+	color:black;
+	background:#0F0;
+	text-align:center;
+	line-height:50px;
+}
+section{
+	width:100%;
+	height:400px;
+}
+.rotateX,.rotateY,.rotateZ{
+	widht:400px;
+	height:320px;
+	background:red;
+	padding:10px;
+}
+.rotateX:hover img{
+	transform:rotateX(360deg);
+	transition:all 2s;
+}
+.rotateY:hover img{
+	transform:rotateY(360deg);
+	transition:all 2s;
+}
+.rotateZ:hover img{
+	transform:rotateZ(360deg);
+	transition:all 2s;
+}
+</style>
+<body>
+<div id="wrap">
+<!----图片旋转---->
+<section>
+    <header>图片绕着X轴旋转</header>
+    <div class="rotateX">
+    	<img src="../../../../PPT模板资源/04-CSS3基础-第4天/04-CSS3基础-第4天/4-源代码/13 转换/images/x.jpg"/>
+    </div>
+<section>
+<!----图片旋转---->
+<section>
+    <header>图片绕Y轴旋转</header>
+    <div class="rotateX">
+    	<img src="../../../../PPT模板资源/04-CSS3基础-第4天/04-CSS3基础-第4天/4-源代码/13 转换/images/Y.jpg"/>
+    </div>
+<section>
+<!----图片旋转---->
+<section>
+    <header>图片绕着Z轴旋转</header>
+    <div class="rotateX">
+    	<img src="../../../../PPT模板资源/04-CSS3基础-第4天/04-CSS3基础-第4天/4-源代码/13 转换/images/Z.jpg"/>
+    </div>
+<section>
+</div>
+</body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript测试</title>
+    <style>
+        * {
+            padding:0px;
+            margin:0px;
+            font-size:18px;
+        }
+        #check{
+            text-align: center;
+            margin:100px auto;
+        }
+        #txt{
+            display: inline-block;
+            border:1px solid black;
+            background:#ccc;
+            padding:5px 15px;
+            margin:10px;
+        }
+        .wrong{
+            background:pink;
+            border:1px solid red;
+        }
+        .right{
+            background:#00FF00;
+            border:1px solid green;;
+        }
+        #wrapper{
+            width:100%;
+            height:100%;
+            position:fixed;
+            top:0;
+            left:0;
+            background:rgba(0,0,0,0.5);
+            z-index: 999;
+            display:none;
+        }
+        #table{
+            width:350px;;
+            height:250px;
+            position:fixed;
+            top:50%;
+            left:50%;
+            margin:-125px 0 0 -125px;
+            background:white;
+            z-index:1000;
+            display:none;
+        }
+        #btnClose{
+            width:100px;
+            height:36px;
+            margin:100px;
+        }
+        #text,#form1{
+            width: 180px;
+            height:30px;
+            line-height: 20px;
+            padding-left:10px;
+            padding-right:10px;
+            border: 1px solid #000000;
+        }
+        #btn1,#btn2{
+            width:50px;
+            height:32px;
+            margin-left:10px;
+        }
+    </style>
+    <script>
+       /* function displayDate(){
+            document.getElementById("title").innerHTML=Date();
+        }
+        document.write("<h1>这是一个段落。</h1>");
+        function Welcome(){
+            document.getElementById("wel").onclick=alert("XX,欢迎你!");
+        }
+        function changeImage(){
+            var oImage=document.getElementById("myimage");
+            oImage.onclick=function(){
+                oImage.src="../image/004.png";
+            }
+        }
+        function testNumber(){
+            var content=document.getElementById("text").value;
+                if(content==""||isNaN(content))
+                    alert("请输入数字！");
+        }
+        function check() {
+            var x = document.forms["myForm"]["fname"].value;
+            if (x== null || x == " ") {
+                alert("需要输入名字");
+            }
+        }
+        function test(){
+            var oinput=document.getElementById("number");
+            if(oinput.checkValidity()==false){
+                if(oinput.value==""){
+                oinput.setCustomValidity("输入不能为空");
+                 }
+               document.getElementById("demo_1").innerText=oinput.validationMessage;
+                alert("请输入有效数字");
+            }
+            else{
+                document.getElementById("demo_1").innerText="输入正确";
+                alert("验证成功");
+            }
+        }*/
+       /*window.onload=function(){
+           document.write(Date());
+        }*/
+       /* function mydate(){
+            var d = new Date();
+            var weekday = new Array(7);
+            weekday[0]="周日";
+            weekday[1]="周一";
+            weekday[2]="周二";
+            weekday[3]="周三";
+            weekday[4]="周四";
+            weekday[5]="周五";
+            weekday[6]="周六";
+            var x=document.getElementById("demo_2");
+            x.innerHTML=weekday[d.getDay()];
+        }
+    */
+       window.onload = function(){
+           function $(id){ return document.getElementById(id);}
+           $("w").onblur = function(){
+               if(this.value == ""){
+                   $("txt").className = "wrong";
+                   $("txt").innerHTML = "内容不能为空";
+               }
+               else if( isNaN(this.value) ){
+                   $("txt").className = "wrong";
+                   $("txt").innerHTML = "请输入数字！";
+               }
+               else if( this.value > 150 || this.value < 0){
+                   $("txt").className = "wrong";
+                   $("txt").innerHTML = "请输入有效成绩";
+               }
+               else{
+                   $("txt").className = "right";
+                   $("txt").innerHTML = "输入正确";
+               }
+           }
+           $("btn").onclick = function (){
+               $("wrapper").style.display="block";
+               $("table").style.display="block";
+           }
+           $("btnClose").onclick = function (){
+               $("wrapper").style.display = "none";
+               $("table").style.display = "none";
+           }
+       }
+    </script>
+
+</head>
+<body>
+    <div id="title">
+        Hello World!
+    </div>
+    <button type="button" onclick="displayDate()">日期</button>
+    <input id="wel" type="button" value="欢迎" onclick="Welcome();"/>
+    <img id="myimage" src="../image/005.png" width="128px;" height="128px;" onclick="changeImage()"/>
+<div>
+    <p>输入验证</p>
+    <div>
+    <input id="text" type="text" placeholder="请输入数字" alt=""/><input id="btn1" type="button" value="提交" onclick="testNumber()"/>
+    </div>
+</div>
+<!-----------------表单验证---------------->
+    <form name="myForm" action="demo-form.php" onsubmit="return check()" method="post" style="margin-top:10px;">
+        名字: <input id="form1" type="text" name="fname">
+        <input id="btn2" type="submit" value="提交">
+    </form>
+<!------------JavaScript 验证 API-------------->
+    <div>
+        <p id="demo_1"></p>
+        <div>
+            <p>请输入10~20之间的数字</p>
+            <input type="number" min="10" max="20" maxlength="2" id="number" required="required" /><input type="button" value="验证" onclick="test()"/>
+        </div>
+    </div>
+    <!------------JavaScript 获取日期-------------->
+<div>
+    <p id="demo_2">
+        日期显示
+    </p>
+    <input type="button" value="显示" onclick="mydate()"/>
+    <div id="wrapper"></div>
+    <div id="table">
+        <button id="btnClose">关闭弹出层</button>
+    </div>
+    <div id="check">
+        语文：<input type="text" id="w" /><span id="txt">请输入成绩...</span>
+    </div>
+    <button id="btn">弹出层</button>
+    <!----<div class="box">
+        语文: <input type="text" id="txt"/>  <span id="result">请输入成绩</span>
+    </div>--->
+</div>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>无缝滚动原理</title>
+    <style>
+        *{margin:0;padding:0;}
+        #box{
+            width:600px;
+            height:200px;
+            margin:100px auto;
+            border:1px solid black;
+            overflow:hidden;
+            position:relative;
+        }
+        ul{
+            width:600%;
+            height:100%;
+            list-style:none;
+            vertical-align:top;
+            position:absolute;
+        }
+        #box ul li{
+            float:left;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <ul>
+        <li><img src="../images/1.jpg" alt=""/></li>
+        <li><img src="../images/2.jpg" alt=""/></li>
+        <li><img src="../images/3.jpg" alt=""/></li>
+        <li><img src="../images/4.jpg" alt=""/></li>
+        <li><img src="../images/1.jpg" alt=""/></li>
+        <li><img src="../images/2.jpg" alt=""/></li>
+    </ul>
+</div>
+</body>
+</html>
+<script>
+window.onload=function(){
+    var timer=null;
+    var number=0;
+    var box=document.getElementById("box")
+    var ul=box.children[0];
+    timer=setInterval(speed,30);
+    box.onmouseover=function(){
+        clearInterval(timer);
+    }
+    box.onmouseout=function(){
+        timer=setInterval(speed,30);
+    }
+    function speed(){
+        number--;
+        if(number<=-1200){
+            number=0;
+        }
+        else{
+            ul.style.left=number+"px";
+        }
+    }
+}
+</script>

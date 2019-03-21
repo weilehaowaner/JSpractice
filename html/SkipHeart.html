@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>跳动的心</title>
+<style>
+section{
+	width:600px;
+	height:600px;
+	background:#CCC;
+	margin:0 auto;
+}
+header{
+	width:600px;
+	height:50px;
+	border-radius:5px;
+	font-size:18px;
+	line-height:50px;
+	text-align:center;
+	background:#666;
+}
+.skip_box{
+	width:200px;
+	height:200px;
+	margin:100px auto;
+	position:relative;
+}
+.left,.right,.bottom{
+	height:200px;
+	width:200px;
+	background:red;
+	position:absolute;
+}
+.left{
+	border-radius:50%;
+	left:-73px;
+}
+.right{
+	border-radius:50%;
+	right:-73px;
+}
+.bottom{
+	bottom:-71px;
+	transform:rotate(45deg);
+}
+.left,.right,.bottom{
+	animation:move 1.5s infinite;
+}
+	@keyframes move{
+		0%{
+			transform:scale(0.8) rotate(45deg);
+		}
+		50%{
+			transform:scale(1.2) rotate(45deg);
+		}
+		100%{
+			transform:scale(1) rotate(45deg);
+		}
+	}
+</style>
+</head>
+
+<body>
+<div id="wrap">
+	<section>
+        <header>跳动的心示例</header>
+        <div class="skip_box">
+        	<span class="left"></span>
+            <span class="right"></span>
+            <span class="bottom"></span>
+        </div>
+    </section>
+</div>
+</body>
+</html>

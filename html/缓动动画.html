@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>缓动动画</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        #demo{
+            width:100px;
+            height: 100px;
+            background:pink;
+            margin-top:10px;
+            position:absolute;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            var demo=document.getElementById("demo");
+            var btn=document.getElementById("btn");
+            var leader=0;
+            var target=400;
+            btn.onclick=function(){
+                setInterval(speed,30);
+            }
+            function speed(){
+                leader=leader+(target-leader)/10;
+                demo.style.left=leader+"px";
+            }
+        }
+    </script>
+</head>
+<body>
+<button id="btn">开始</button>
+<div id="demo"></div>
+</body>
+</html>
